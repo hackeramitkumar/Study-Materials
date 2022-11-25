@@ -6,7 +6,7 @@
 ```
 
 ## write System Call
-* Header file: unistd.h
+* Header file: ```unistd.h```
 * Syntax:
 ```BASH
     write(fd,text,count);
@@ -22,7 +22,7 @@
     |   2             | stderr    |
 
 ## read System Call
-* Header file: unistd.h
+* Header file: ```unistd.h```
 * Syntax:
 ```BASH
     read(fd,bufferToStore,size);
@@ -77,7 +77,7 @@
 ```BASH
     dup2(oldfd,newfd);
 ```
-**Note: ** If ```newfd``` is already used by some other file, that file will be closed, and ```newfd``` is allocated to
+**Note:** If ```newfd``` is already used by some other file, that file will be closed, and ```newfd``` is allocated to
 this particular file.
 
 * On  success, these system calls return the new file descriptor.  On error, -1 is returned, and errno is set appropriately.
@@ -124,7 +124,7 @@ e.g.-
 * The  exec()  functions  return  only if an error has occurred.  The return value is -1.
 * **execlp** takes the *path* variables
 into account. So we can run any file, which is added to path, directly without specifying their full paths.
-* **Note: ** *l* or *v* is important with exec while *p* and *e* are optional.
+* **Note:** *l* or *v* is required with exec while *p* and *e* are optional.
 
 
 
