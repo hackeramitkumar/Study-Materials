@@ -8,7 +8,7 @@
 ## write System Call
 * Header file: ```unistd.h```
 * Syntax:
-```BASH
+```C
     write(fd,text,count);
 ```
 * It returns the number of bytes written.
@@ -24,7 +24,7 @@
 ## read System Call
 * Header file: ```unistd.h```
 * Syntax:
-```BASH
+```C
     read(fd,bufferToStore,size);
 ```
 * It returns the number of bytes read.
@@ -33,11 +33,11 @@
 ## open System Call
 * Header files: ```sys/types.h```, ```sys/stat.h```, ```fcntl.h```
 * To open a file already created:
-```BASH
+```C
     int fd = open(filename,mode);
 ```
 * To create a new file and open:
-```
+```C
   int fd = open(filename,O_CREAT|modes,permissions);
 ```
 * Some modes:
@@ -51,7 +51,7 @@
 * Header files: ```sys/types.h```, ```unistd.h```
 * used to reposition read/write offset (by default the read/write pointer is at start of the file)
 * syntax:
-```
+```C
     lseek(fd,offset,whence)
      fd: file-descriptor
      offset: how much to position
@@ -69,12 +69,12 @@
 * Header files: ```unistd.h```
 * to duplicate the file descriptors
 * Syntax:
-```BASH
+```C
     dup(oldfd);
 ```
 * **dup2** duplicates the file descriptors (here we give newfd manually, we don't want system to generate it automatically.)
 * Syntax:
-```BASH
+```C
     dup2(oldfd,newfd);
 ```
 **Note:** If ```newfd``` is already used by some other file, that file will be closed, and ```newfd``` is allocated to
@@ -86,7 +86,7 @@ this particular file.
 * Header files: ```unistd.h```,```sys/types.h```
 * used to create a child process
 * Syntax
-```BASH
+```C
     fork();
 ```
 * The  child  process  and the parent process run in separate memory spaces.
@@ -95,12 +95,12 @@ this particular file.
 ## wait, waitpid system call
 * The  **wait()** system call suspends execution of the calling thread until one of its children changes state.
 * Syntax:
-```BASH
+```C
     wait(&wstatus);
 ```
 * The **waitpid()** system call suspends execution of the calling thread until a child specified by pid argument has changed state.
 * Syntax:
-```BASH
+```C
     waitpid(pid,&wstatus,options);
 ```
 **Orphan Process:** process without parent process.
@@ -112,7 +112,7 @@ this particular file.
 ```man 3 exec```
 * The  **exec()**  family of functions replaces the current process image with a new process image. (Basically execute a file)
 * execl syntax:
-```BASH
+```C
     execl(pathname, args, options);
 e.g.-
     execl("/bin/ls","ls","-l",NULL);
